@@ -1,0 +1,6 @@
+select cust_hash,
+PARSE_DATE ('%m-%d-%Y',FORMAT_DATE('%m-%d-%Y', Created_date)) AS Created_date,
+PARSE_DATE ('%m-%d-%Y', FORMAT_DATE('%m-%d-%Y', Event_date)) AS Event_date,
+date_diff(event_date, created_date, day) as Day
+from `Amar_bank.Join_table`
+order by day desc
