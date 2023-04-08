@@ -1,0 +1,5 @@
+SELECT f.cust_hash,
+PARSE_DATE ('%m-%d-%Y',FORMAT_DATE('%m-%d-%Y', f.created)) AS Created_date,
+PARSE_DATE ('%m-%d-%Y', FORMAT_DATE('%b-%d-%Y', u.event_date)) AS Event_date,
+#DATE_DIFF(u.event_date, f.created, day) as Day
+from `Amar_bank.First_Submit_User` f left join `Amar_bank.Uninstall_User` u on f.cust_hash = u.Cust_Hash
